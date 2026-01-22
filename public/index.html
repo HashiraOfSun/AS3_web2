@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog CRUD</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1>Blog CRUD</h1>
+      <p class="muted">Simple interface to interact with the API</p>
+    </header>
+
+    <section class="card">
+      <h2>Create a post</h2>
+      <form id="createForm" class="grid">
+        <label>
+          Title*
+          <input id="title" type="text" placeholder="Post title" required />
+        </label>
+        <label>
+          Author
+          <input id="author" type="text" placeholder="Anonymous (default)" />
+        </label>
+        <label class="full">
+          Body*
+          <textarea id="body" rows="5" placeholder="Write something..." required></textarea>
+        </label>
+        <div class="full actions">
+          <button type="submit">Create</button>
+          <span id="createMsg" class="msg"></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Posts</h2>
+        <button id="refreshBtn" type="button">Refresh</button>
+      </div>
+      <div id="list" class="list"></div>
+      <div id="empty" class="muted">No posts yet.</div>
+    </section>
+  </div>
+
+  <dialog id="editDialog">
+    <form method="dialog" class="dialog">
+      <h3>Edit post</h3>
+      <input type="hidden" id="editId" />
+      <label>
+        Title*
+        <input id="editTitle" type="text" required />
+      </label>
+      <label>
+        Author
+        <input id="editAuthor" type="text" />
+      </label>
+      <label>
+        Body*
+        <textarea id="editBody" rows="6" required></textarea>
+      </label>
+      <div class="actions">
+        <button id="saveBtn" value="default" type="button">Save</button>
+        <button value="cancel" type="submit" class="secondary">Cancel</button>
+        <span id="editMsg" class="msg"></span>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
